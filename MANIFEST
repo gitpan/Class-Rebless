@@ -1,6 +1,7 @@
 Changes
 INSTALL
 MANIFEST
+README
 Makefile.PL
 lib/Class/Rebless.pm
 META.yml                                Module meta-data (added by MakeMaker)
