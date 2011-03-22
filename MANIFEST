@@ -14,13 +14,13 @@ INSTALL
 lib/Class/Rebless.pm
 LICENSE
 Makefile.PL
-MANIFEST
+MANIFEST			This list of files
 MANIFEST.SKIP
-META.yml			Module meta-data (added by MakeMaker)
+META.yml
 README
+SIGNATURE
 t/01-simple.t
 t/boilerplate.t
 t/pod-coverage.t
 t/pod.t
 t/use.t
-SIGNATURE                                Public-key signature (added by MakeMaker)

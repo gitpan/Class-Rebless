@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.55.
+signed via the Module::Signature module, version 0.63.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,35 +14,35 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 6f354d51deaba15e56c859c2c810e81c7de4ee40 Changes
+SHA1 c276a73424bdf6fc3e76f583d25b04d07d45e736 Changes
 SHA1 6f4d6dd9592d039a9f3d6c0d97d08ec1a84d9afc INSTALL
-SHA1 89a202d5ca8b2f5266190009f52657df8e89615c LICENSE
-SHA1 c17385b2177b1d5bcdd2091e9eead3cacc0cbf25 MANIFEST
-SHA1 fbb32a88e574e6b85597abcb12c46253790a6e3c MANIFEST.SKIP
-SHA1 5a68d29c4808d5101811bc9940ccc57ed65ec1fa META.yml
+SHA1 8b646c25bac537d8bc5e9d7af2fc5c2018b7f304 LICENSE
+SHA1 9dcaa66d14d4b9e16fa3b677b52ac9746c45f835 MANIFEST
+SHA1 51d68d0c6adea3b2bab48f8ce3ebfd191be38b87 MANIFEST.SKIP
+SHA1 408e1cec6008005b8d5afba37336e2b1a0740af3 META.yml
 SHA1 540fa58c202327bb97f3093bf60182bcc5eb8556 Makefile.PL
-SHA1 54041766a8bae2b280cfe4aa662c6a5cbb673a37 README
-SHA1 603bb9de29fb8cba7f13409c546750972eff645d inc/Module/AutoInstall.pm
-SHA1 ceac99579ef3914de1936417282842c07d907a6a inc/Module/Install.pm
-SHA1 c289fbaf0a2bce39c4993dab38fc70cbb3789f57 inc/Module/Install/AutoInstall.pm
-SHA1 6c9471c92c28e247fb84f4ab7dc277f68b33ea95 inc/Module/Install/Base.pm
-SHA1 b2cb1026330e8c4f8533c79569498ab15f189d86 inc/Module/Install/Can.pm
-SHA1 78acbad45c4289c228ead2278fc213ddd66bcead inc/Module/Install/Fetch.pm
-SHA1 a4b4488af13b5d038bb6fbd3c4ec635d2c640567 inc/Module/Install/Include.pm
-SHA1 642e5b27f4cbbbe440e5dc05c639f5fb79875fe3 inc/Module/Install/Makefile.pm
-SHA1 80d024f3eccf1c825b02b5e59de236b0af7d4bfc inc/Module/Install/Metadata.pm
-SHA1 fe6780ea5cfd67c79140699fbd4f0fe262255d57 inc/Module/Install/Win32.pm
-SHA1 51d43bffcfd7ffdecb8c8e9f97f3896c31b2e1b2 inc/Module/Install/WriteAll.pm
-SHA1 6eeb254145a868a4575a153771ca91e76919ab03 lib/Class/Rebless.pm
-SHA1 eca2a800d2e0b44ea7d90b4df9a1032cc75e5c4c t/01-simple.t
+SHA1 7530d1eeb593107b67d26d1950b737113155c7ab README
+SHA1 20c73697e1713638140c719d8eaa19a275ed43a5 inc/Module/AutoInstall.pm
+SHA1 7305dbe2904416e28decb05396988a5d51d578be inc/Module/Install.pm
+SHA1 ca13d9875e1249f6e84f7070be8152c34837955e inc/Module/Install/AutoInstall.pm
+SHA1 129960509127732258570c122042bc48615222e1 inc/Module/Install/Base.pm
+SHA1 cf3356ed9a5bd2f732527ef9e7bc5ef4458c8a93 inc/Module/Install/Can.pm
+SHA1 bf0a3e1977effc2832d7a813a76dce3f31b437b6 inc/Module/Install/Fetch.pm
+SHA1 b501b0df59a5cd235cca473889f82c3d3429f39e inc/Module/Install/Include.pm
+SHA1 b721c93ca5bc9a6aa863b49af15f1b1de6125935 inc/Module/Install/Makefile.pm
+SHA1 026cc0551a0ad399d195e395b46bdf842e115192 inc/Module/Install/Metadata.pm
+SHA1 5457015ea5a50e93465bf2dafa29feebd547f85b inc/Module/Install/Win32.pm
+SHA1 051e7fa8063908befa3440508d0584a2497b97db inc/Module/Install/WriteAll.pm
+SHA1 c7fbe277561881a84e750efdc1bcc47798ce6070 lib/Class/Rebless.pm
+SHA1 fbfb8f448a21e7f98bd16567e9a2961aa8fbaf35 t/01-simple.t
 SHA1 5edae44e1affde073216b1a4794622f7a41c31d2 t/boilerplate.t
 SHA1 6474d0d48688227a97313ca21115f98546a3d96b t/pod-coverage.t
 SHA1 0190346d7072d458c8a10a45c19f86db641dcc48 t/pod.t
 SHA1 2ed3f06c9bc5c594190f0080f2b75b1949f24b99 t/use.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.6 (GNU/Linux)
+Version: GnuPG v1.4.10 (GNU/Linux)
 
-iD8DBQFGQ0fIN2uCuGP2mw4RAhXeAKC6wIbIfsMf8W3rTtyzkLtlqJZuqgCfXBz1
-7QG/XuCUvuQysBIjQTF98dg=
-=RMoO
+iEYEARECAAYFAk2IUCMACgkQcNs4LFsgNuP8BgCdGVM4Lq8XrqULSqP0wVyz/hte
+oLMAoNsWgfwz7SZjYWDryKMBkORYIjHT
+=Raag
 -----END PGP SIGNATURE-----

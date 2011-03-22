@@ -7,7 +7,7 @@ use Scalar::Util;
 
 use vars qw($VERSION $RE_BUILTIN $MAX_RECURSE);
 
-$VERSION = '0.08';
+$VERSION = '0.09';
 $MAX_RECURSE = 1_000;
 
 
@@ -34,19 +34,21 @@ my %subs = (
     },
 );
 
-while (my($name, $editor) = each %subs) {
-    my $code;           # yay for recursive closures!
-    $code = sub {
-        my($proto, $obj, $namespace, $opts, $level) = @_;
-        $opts ||= {};
-        $opts->{code} = $code;
-        $editor->($opts);
-        
-        recurse($proto, $obj, $namespace, $opts, $level);
-        #goto &recurse; # I wonder why this doesn't work?
-    };
+while (my($name, $add_editor_to_opts) = each %subs) {
     no strict 'refs';
-    *{__PACKAGE__ . "::$name"} = $code;
+    *{__PACKAGE__ . "::$name"} = sub {
+        my ($proto, $obj, $namespace, $opts) = @_;
+
+        my $class = ref($proto) || $proto;
+
+        $opts ||= {};
+        $add_editor_to_opts->($opts);
+
+        my $level = 0;
+        my $seen  = {};
+
+        $class->_recurse($obj, $namespace, $opts, $level, $seen);
+    };
 }
 
 {
@@ -61,17 +63,25 @@ while (my($name, $editor) = each %subs) {
     }
 }
 
-sub recurse {
-    my($proto, $obj, $namespace, $opts, $level) = @_;
-    my $class = ref($proto) || $proto;
-    $level++;
+sub _recurse {
+    my ($class, $obj, $namespace, $opts, $level, $seen) = @_;
+
+    # If MAX_RECURSE is 10, we should be allowed to recurse ten times before
+    # throwing an exception.  That means we only throw an exception at #11.
     die "maximum recursion level exceeded" if $level > $MAX_RECURSE;
+
+    $seen ||= {};
 
     my $recurse = sub {
         my $who = shift;
         #my $who = $_[0];
         #print ">>>> recurse " . Carp::longmess;
-        $opts->{code}->($class, $who, $namespace, $opts, $level);
+
+        my $refaddr = Scalar::Util::refaddr($who);
+        return if defined $refaddr and $seen->{$refaddr};
+        local $seen->{ defined $refaddr ? $refaddr : '' } = 1;
+
+        $class->_recurse($who, $namespace, $opts, $level+1, $seen);
     };
 
     # rebless this node, possibly pruning (skipping recursion
@@ -80,7 +90,7 @@ sub recurse {
         my $res = $opts->{editor}->($obj, $namespace); # re{bless,base} ref
         return $obj if $class->need_prune($res);
     }
-    
+
     my $type = Scalar::Util::reftype $obj;
     return $obj unless defined $type;
 
@@ -244,13 +254,15 @@ Reblessing a tied object may produce unexpected results.
 
 =head1 AUTHOR
 
-Gaal Yahas <gaal@forum2.org>
+Gaal Yahas E<lt>gaal@forum2.orgE<gt>
 
-Gabor Szabo <szabgab@gmail.com> has contributed many tests. Thanks!
+Gabor Szabo E<lt>szabgab@gmail.comE<gt> has contributed many tests. Thanks!
+
+Ricardo Signes E<lt>rjbs@cpan.orgE<gt> has contributed bugfixes. Thanks!
 
 =head1 COPYRIGHT (The "MIT" License)
 
-Copyright 2004-2007 Gaal Yahas.
+Copyright 2004-2011 Gaal Yahas.
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
